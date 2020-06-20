@@ -31,9 +31,3 @@ while guessesTaken < 6:
 if guess != number:
         number = str(number)
         print('Nope. The number I was thinking of was ' + number)
-
-
-
-
-
-
