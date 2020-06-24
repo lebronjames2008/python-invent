@@ -11,17 +11,19 @@ def displayIntro():
     print('is greedy and hungry, and will eat you on sight.')
     print()
 
-    def chooseItem():
-        print('You found a Sword and Candy')
-        print('Which one do you want 1 or 2')
-        itemChosen = input()
-        if itemChosen == '1':
-            print('You got a Sword')
 
-        if itemChosen == '2':
-            print('You got Candy ')
+def chooseitem():
+    print('You found a Sword which is 1 and Candy as number 2')
+    print('Do you want 1 or 2')
+    itemChosen = input()
 
-        return itemChosen
+    if itemChosen == '1':
+        print('You got a Sword')
+
+    if itemChosen == '2':
+        print('You got Candy ')
+
+    return itemChosen
 
 
 # Def statement to tell that its asking you to choose a cave
@@ -50,14 +52,23 @@ def checkCave(chosenCave):
 
     if chosenCave == str(friendlyCave):
         print(' Dragon Gives you his treasure!')
-    else:
+
+    if chosenCave != str(friendlyCave):
         print(' Dragon Gobbles you down in one bite!')
+
+    if chosenCave != str(friendlyCave):
+        print("if you had a sword you killed the dragon and it didn't kill you, if you had candy it killed you and ate your candy.")
+
+    if chosenCave == str(friendlyCave):
+        print("If you have a sword the dragon Farts at you, if you didn't have a sword and you had candy the dragon takes your candy while you get all the treasure.")
 
 
 playAgain = 'yes'
 while playAgain == 'yes' or playAgain == 'y':
     displayIntro()
     # The choose cave function lets the player type in the the cave they want to go into.
+
+    itemChosenDisplay = chooseitem()
 
     caveNumber = chooseCave()
 
