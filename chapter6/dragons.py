@@ -1,6 +1,7 @@
 # Dragon Realm Game
 import random
 import time
+
 #Def statement is for defining that this is the Intro
 def displayIntro():
     print('You are in a land full of dragons. In front of you,')
@@ -8,6 +9,7 @@ def displayIntro():
     print('and will share his treasure with you. The other dragon')
     print('is greedy and hungry, and will eat you on sight.')
     print()
+
 #Def statement to tell that its asking you to choose a cave
 def chooseCave():
     cave = ''
@@ -32,15 +34,16 @@ def checkCave(chosenCave):
     friendlyCave = random.randint(1, 2)
 
     if chosenCave == str(friendlyCave):
-        print('Gives you his treasure!')
+        print(' Dragon Gives you his treasure!')
     else:
-        print('Gobbles you down in one bite!')
+        print(' Dragon Gobbles you down in one bite!')
 
 playAgain = 'yes'
 while playAgain == 'yes' or playAgain == 'y':
 
     displayIntro()
 #The choose cave function lets the player type in the the cave they want to go into.
+
     caveNumber = chooseCave()
 
     checkCave(caveNumber)
