@@ -1,7 +1,9 @@
+# Dragon Realm Game
 import random
 import time
 
 
+# Def statement is for defining that this is the Intro
 def displayIntro():
     print('You are in a land full of dragons. In front of you,')
     print('you see two caves. In one cave, the dragon is friendly')
@@ -9,67 +11,58 @@ def displayIntro():
     print('is greedy and hungry, and will eat you on sight.')
     print()
 
+    def chooseItem():
+        print('You found a Sword and Candy')
+        print('Which one do you want 1 or 2')
+        itemChosen = input()
+        if itemChosen == '1':
+            print('You got a Sword')
 
-def chooseItem():
-    print('You have a Sword and a Candy')
-    print('Which one do you want, 1 or 2.')
-    itemChosen = input()
-    if itemChosen == '1':
-        print('You got a Sword')
+        if itemChosen == '2':
+            print('You got Candy ')
 
-    if itemChosen == '2':
-        print('Yoy got Candy ')
-
-    return itemChosen
+        return itemChosen
 
 
+# Def statement to tell that its asking you to choose a cave
 def chooseCave():
     cave = ''
+    # Cave is function here is equal to a blank string
     while cave != '1' and cave != '2':
-        print('Which cave are you choosing to go in, 1 or 2')
+        # This function is to make sure the user typed 1 or 2, and not something else.
+        # Also the and is a another type of operator just like or and it is a boolean operator.
+        print('Which cave will you go into? (1 or 2)')
         cave = input()
 
     return cave
 
 
-def checkCave(chosenCave, itemChosen):
-    print('you approach the cave...')
+def checkCave(chosenCave):
+    print('You approach the cave...')
     time.sleep(2)
     print('It is dark and spooky...')
     time.sleep(2)
-    print('A large dragon jumps in front of you and opens his jaws and...')
+    print('A large dragon jumps out in front of you! He opens his jaws and...')
     print()
     time.sleep(2)
 
     friendlyCave = random.randint(1, 2)
 
-    if chosenCave == str(friendlyCave) and itemChosen == 2:
-        print('Gives you his treasure')
-        print('And eats your candy happily')
-
-    elif chosenCave == str(friendlyCave) and itemChosen == 1:
-        print('Gives you his treasure')
-        print(' And farts at you')
-
-    elif chosenCave != str(friendlyCave) and itemChosen == 1:
-        print("Dies because you stab it with your new sword")
-
-    elif chosenCave != str(friendlyCave) and itemChosen == 2:
-        print('gobbles you up in 1 bite,a nd enjoys your piece of candy')
+    if chosenCave == str(friendlyCave):
+        print(' Dragon Gives you his treasure!')
+    else:
+        print(' Dragon Gobbles you down in one bite!')
 
 
-# This is the start of the program
 playAgain = 'yes'
-
 while playAgain == 'yes' or playAgain == 'y':
     displayIntro()
-
-    itemChosenend = chooseItem()
+    # The choose cave function lets the player type in the the cave they want to go into.
 
     caveNumber = chooseCave()
 
-    checkCave(caveNumber, itemChosenend)
-
-    print('Do you want to play again?(yes or no)')
-
+    checkCave(caveNumber)
+    # This is the function that will display either if it will give you treasure or gobble you up.
+    print('Do you want to play again? (yes or no)')
     playAgain = input()
+    # This is the playagain function where you press y or yes to play again or no to stop playing.
