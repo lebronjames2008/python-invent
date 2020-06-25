@@ -3,6 +3,7 @@ import random
 import time
 
 
+# ----------------------------------------------------
 # Def statement is for defining that this is the Intro
 def displayIntro():
     print('You are in a land full of dragons. In front of you,')
@@ -12,11 +13,12 @@ def displayIntro():
     print()
 
 
+# ----------------------------------------------------
 def chooseitem():
-    print('You found a Sword which is 1 and Candy as number 2')
+    print('You found a Sword(1) and Candy(2)')
     print('Do you want 1 or 2')
-    itemChosen = input()
 
+    itemChosen = input()
     if itemChosen == '1':
         print('You got a Sword')
 
@@ -26,6 +28,7 @@ def chooseitem():
     return itemChosen
 
 
+# ----------------------------------------------------
 # Def statement to tell that its asking you to choose a cave
 def chooseCave():
     cave = ''
@@ -39,7 +42,8 @@ def chooseCave():
     return cave
 
 
-def checkCave(chosenCave):
+# ----------------------------------------------------
+def checkCave(chosenCave, itemChosen):
     print('You approach the cave...')
     time.sleep(2)
     print('It is dark and spooky...')
@@ -48,21 +52,22 @@ def checkCave(chosenCave):
     print()
     time.sleep(2)
 
-    friendlyCave = random.randint(1, 2)
+    caveNumber = random.randint(1, 2)
 
-    if chosenCave == str(friendlyCave):
-        print(' Dragon Gives you his treasure!')
-
-    if chosenCave != str(friendlyCave):
-        print(' Dragon Gobbles you down in one bite!')
-
-    if chosenCave != str(friendlyCave):
-        print("if you had a sword you killed the dragon and it didn't kill you, if you had candy it killed you and ate your candy.")
-
-    if chosenCave == str(friendlyCave):
-        print("If you have a sword the dragon Farts at you, if you didn't have a sword and you had candy the dragon takes your candy while you get all the treasure.")
+    if chosenCave == str(caveNumber) and itemChosen == '1':
+        print(' Friendly Dragon: Gives you his treasure! ')
+    if chosenCave == str(caveNumber) and itemChosen == '2':
+        print("Dragone Farts at you")
+    if chosenCave != str(caveNumber) and itemChosen == "1":
+        print("You win")
+    if chosenCave != str(caveNumber) and itemChosen == "2":
+        print("The Dragon eats you")
 
 
+# ----------------------------------------------------
+# progarm starts here
+
+# ----------------------------------------------------
 playAgain = 'yes'
 while playAgain == 'yes' or playAgain == 'y':
     displayIntro()
@@ -72,7 +77,7 @@ while playAgain == 'yes' or playAgain == 'y':
 
     caveNumber = chooseCave()
 
-    checkCave(caveNumber)
+    checkCave(caveNumber, itemChosenDisplay)
     # This is the function that will display either if it will give you treasure or gobble you up.
     print('Do you want to play again? (yes or no)')
     playAgain = input()
